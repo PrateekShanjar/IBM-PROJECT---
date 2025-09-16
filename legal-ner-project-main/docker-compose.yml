@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  backend:
+    build: ./backend
+    container_name: legal-ner-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./database:/app/../database
+      - ./backend/uploads:/app/uploads
+      - ./models:/app/../models
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: legal-ner-frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    restart: unless-stopped

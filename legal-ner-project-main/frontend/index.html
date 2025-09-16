@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merged NER Results</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>📑 Merged NER Results</h1>
+      <p>Upload your legal documents and extract structured entities with filtering & summary</p>
+    </div>
+
+    <!-- Upload Section -->
+    <div class="upload-section">
+      <h2>Upload Documents</h2>
+      <div id="uploadArea" class="upload-area">
+        <div class="upload-icon">📂</div>
+        <h3>Click or Drag & Drop files here</h3>
+        <p>Supported formats: PDF, DOCX, TXT</p>
+        <input type="file" id="fileInput" class="file-input" multiple />
+      </div>
+      <div id="fileList" class="file-list"></div>
+    </div>
+
+    <!-- Process Button + Progress -->
+    <div class="process-section">
+      <button id="processBtn" class="process-btn" disabled>🚀 Process Documents</button>
+      <div id="progressBar" class="progress-bar" style="display:none;">
+        <div class="progress-fill"></div>
+        <span class="progress-text">0%</span>
+      </div>
+    </div>
+
+    <!-- Results Section -->
+    <div id="resultsSection" class="results-section" style="display:none;">
+      <h2>📊 Extraction Results</h2>
+
+      <!-- Filters -->
+      <div class="filters">
+        <label for="entityFilter">Filter by Entity Type:</label>
+        <select id="entityFilter">
+          <option value="All">All Entities</option>
+        </select>
+        <button id="exportBtn" class="export-btn">📥 Export Results</button>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3 id="totalEntities">0</h3>
+          <p>Total Entities</p>
+        </div>
+        <div class="stat-card">
+          <h3 id="uniqueEntities">0</h3>
+          <p>Unique Entities</p>
+        </div>
+        <div class="stat-card">
+          <h3 id="documentsProcessed">0</h3>
+          <p>Documents Processed</p>
+        </div>
+      </div>
+
+      <!-- Entity Results -->
+      <div class="results-grid">
+        <!-- Extracted Entities -->
+        <div class="entity-list">
+          <h3>Extracted Entities</h3>
+          <div id="entityResults"></div>
+        </div>
+
+        <!-- Document Analysis -->
+        <div class="document-view">
+          <h3>Document Analysis</h3>
+          <div id="documentAnalysis"></div>
+        </div>
+      </div>
+
+      <!-- Merged Entity Summary -->
+      <div class="merged-results">
+        <h3>Merged Entity Summary</h3>
+        <div id="mergedSummary"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
